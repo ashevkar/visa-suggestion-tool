@@ -16,6 +16,8 @@ import {
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 
+import { motion, useScroll, useTransform } from "framer-motion";
+
 // Define the result type
 interface GenerationResult {
   suggestedComponents: string[];
@@ -24,6 +26,8 @@ interface GenerationResult {
 
 // Main App Component
 export default function App() {
+  const { scrollY } = useScroll();
+
   const [darkMode, setDarkMode] = useState(false);
   const [prompt, setPrompt] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -89,36 +93,50 @@ export default function App() {
       handleGenerate();
     }
   };
- 
 
   const theme = createTheme({
     palette: {
-      mode: darkMode ? 'dark' : 'light',
+      mode: darkMode ? "dark" : "light",
     },
   });
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+  const headerHeight = useTransform(scrollY, [0, 15], ["100px", "64px"]);
+  const fontSize = useTransform(scrollY, [0, 15], ["7rem", "3.25rem"]); // from text-4xl to text-xl
 
   return (
     <ThemeProvider theme={theme}>
-      <div className={darkMode ? 'dark' : ''}>
+      <div className={darkMode ? "dark" : ""}>
         <div className="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 min-h-screen font-sans relative">
-                      <div className="absolute top-4 right-4 z-10">
-              <IconButton 
-                onClick={toggleDarkMode}
-                size="small"
-                className="text-gray-600  dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-200"
-              >
-                {darkMode ? <Brightness7Icon fontSize="small" /> : <Brightness4Icon fontSize="small" />}
-              </IconButton>
-            </div>
-          
+          <div className="absolute top-4 right-4 z-10">
+            <IconButton
+              onClick={toggleDarkMode}
+              size="small"
+              className="text-gray-600  dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-200"
+            >
+              {darkMode ? (
+                <Brightness7Icon fontSize="small" />
+              ) : (
+                <Brightness4Icon fontSize="small" />
+              )}
+            </IconButton>
+          </div>
+
+         
+
           <div className="container mx-auto p-4 md:p-8">
             <header className="text-center mb-8 md:mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold text-blue-900 dark:text-blue-100">
+            <motion.header
+            style={{ height: headerHeight,width: "100vw" }}
+            className=" top-0 left-0 w-full   z-50 flex items-center justify-center transition-all"
+          >
+            <motion.h1 style={{ fontSize }} className="font-bold text-blue-900 dark:text-blue-100">
+              {/* <h1 className="text-4xl md:text-5xl  "> */}
                 Visa UI Generator
-              </h1>
+              {/* </h1> */}
+            </motion.h1>
+          </motion.header>
               <p className="text-lg text-gray-600 dark:text-gray-300 mt-2">
                 Describe your desired UI and get{" "}
                 <code className="text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-md">
@@ -217,8 +235,8 @@ export default function App() {
                     Your generated UI code will appear here.
                   </p>
                   <p>
-                    Try an example like "A user profile card with an avatar
-                    and contact info".
+                    Try an example like "A user profile card with an avatar and
+                    contact info".
                   </p>
                 </div>
               )}
