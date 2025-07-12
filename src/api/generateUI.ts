@@ -11,7 +11,7 @@ export async function generateUI(prompt: string) {
     };
 
     const fullPrompt = `
-        You are an expert in React and the @visa/nova-react component library.
+        You are an expert in React and the @visa/nova-react component library from the Visa Product Design System.
         A developer wants to build a UI.
         
         Developer's description: "${prompt}"

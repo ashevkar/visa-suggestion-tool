@@ -1,69 +1,88 @@
-# React + TypeScript + Vite
+# 💡 Natural Language → Visa Component Suggestion Tool
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to an innovative developer-first experience built with the [Visa Product Design System (Nova)](https://developer.visa.com/pages/design-system) in mind.
 
-Currently, two official plugins are available:
+This tool transforms natural language descriptions like _"Responsive login form with remember me"_ into:
+- 🎯 **Accurate component suggestions** using Visa’s Nova library
+- 🧩 **Instant code snippets** ready to plug into your project
+- ⚡ **Developer-friendly UI** with accessibility and usability at its core
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🛠 **Try it Live:** [🔗 Deployed on Vercel](https://your-vercel-link.com)  
+📂 **Source Code:** [🔗 GitHub Repository](https://github.com/ashevkar/visa-component-suggestion-tool)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Why This Tool?
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Developers often know what they want to build—but translating ideas into specific UI components takes time.  
+This app bridges that gap with a seamless, natural-language-to-code experience. It's quick, efficient, and fun to use!
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠 Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+| Category       | Technology Used                               |
+|----------------|------------------------------------------------|
+| **Frontend**   | React, TypeScript, Tailwind CSS                |
+| **Design System** | Visa Nova Design System (mocked components) |
+| **Deployment** | Vercel                                          |
+| **Accessibility** | WCAG-compliant UI, keyboard nav             |
+| **Logic**      | Rule-based keyword mapping (no AI backend)     |
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ✨ Features
+
+- 🧠 **Smart Suggestions**  
+  Parses natural language input and maps keywords to Visa UI components.
+
+- 📄 **Auto Code Generation**  
+  Instantly generates usable JSX/TSX snippets with mocked Visa components.
+
+- 🎨 **Themed Interface**  
+  Styled with Nova’s theming features and Tailwind for a polished feel.
+
+- 🖱️ **One-Click Copy**  
+  Easily copy the full component code block to your clipboard.
+
+- 🌐 **Accessible by Design**  
+  Follows best practices for keyboard users and screen readers.
+
+---
+
+## 🧪 How It Works
+
+1. 🗣 Type a UI description (e.g., "Sign-up form with email & password fields")
+2. 🔍 Get relevant visa design components (like `Input`, `Button`, `Card`)
+3. 🧱 View the code snippet combining them into a usable UI
+4. 📋 Click to copy, paste into your project, and go!
+
+---
+
+## 💭 Behind the Scenes
+
+- Created a **rule-based matcher** using keyword parsing (e.g., “form”, “login”, “button”).
+- Used **mocked Nova components** with matching class names to simulate Visa UI.
+- Prioritized **clean layout** and fast workflow to support frontend developers.
+
+---
+
+## 🧠 Future Enhancements
+
+With more time, here’s what I’d love to add:
+
+- 🤖 **AI-powered NLP backend** to support fuzzy queries and better matching
+- 📦 **Real Nova component integration** via API or live docs
+- 🎥 **Live Preview Mode** for real-time rendered UI blocks
+- 💾 **History & Favorites** to store your favorite prompts and snippets
+- 🧩 **VSCode Extension** to bring this functionality right into your editor
+
+---
+
+## 📜 License
+
+MIT — free to use, remix, and build upon.
+
+---
+
+_“Good design is obvious. Great design is invisible — and fast to copy-paste.”_ 😉  
